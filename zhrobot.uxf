@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="12.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>20</x>
+      <y>130</y>
+      <w>250</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>zhrobot::Robot
+--
+-linknum: int
+-H: dMatrix
+--
+-calcH()
++Robot(links: Link *, num: int)
++Robot(robot: Robot)
++~Robot()
++setLinks(links: Link[], num: int)
++setQ(index: int, q: double)
++setQs(qs: dVector)
++getLink(index: int): Link
++getH(): dMatrix
++getA(num: int): dMatrix
++getDestCoord(src: dVector): dVector
++invertCoord(dst: dVector): dVector
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>240</x>
+      <y>150</y>
+      <w>110</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&gt;&gt;&gt;-&lt;
+r1=links
+m1=1..*
+</panel_attributes>
+    <additional_attributes>90;30;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>330</x>
+      <y>10</y>
+      <w>210</w>
+      <h>370</h>
+    </coordinates>
+    <panel_attributes>zhrobot::Link
+--
+-theta:double
+-d:double
+-a:double
+-alpha:double
+-A:dMatrix
+--
+-calcA()
++Link(theta: double, d: double, 
+     a: double, alpha: double,
+     jt: JointType)
++Link(link: Link)
++setQ(q: double)
++setTheta(theta: double)
++setD(d: double)
++setA(a: double)
++setAlpha(alpha: double)
++getParaTheta():double
++getParaD():double
++getParaA():double
++getParaAlpha():double
++getA(): dMatrix
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>30</x>
+      <y>10</y>
+      <w>210</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enum&gt;&gt;
+zhrobot::JointType
+--
++E_JOINT_R
++E_JOINT_P
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>210</x>
+      <y>30</y>
+      <w>140</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=rt
+m1=1
+</panel_attributes>
+    <additional_attributes>30;30;120;30</additional_attributes>
+  </element>
+</diagram>
